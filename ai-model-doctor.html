@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Model Doctor — Tato Tools</title>
+  <meta name="description" content="Unity editor tool that makes AI-generated 3D models game-ready on import: scale, pivot, URP materials, mobile budgets with LODs, Humanoid rigs and a license ledger.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="">Tato Tools</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="ai-model-doctor.html" aria-current="page">AI Model Doctor</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Unity editor tool · Coming soon to the Asset Store</div>
+      <h1>AI Model Doctor</h1>
+      <p>Game-ready imports for models from Meshy, Tripo and other AI 3D generators. Put an import rule in a folder; every model that lands there is fixed on import, and the editor window shows what was fixed and what still needs you.</p>
+      <a class="button" href="contact.html">Ask a question</a>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>What it fixes</h2>
+        <p class="lead">Measured on 36 models (70 FBX files, static and rigged) generated for testing, in Unity 2022.3 LTS and Unity 6.</p>
+        <div class="grid">
+          <div class="card"><h3>Scale and pivot</h3><p>Bakes the ×100 root scale that Blender-style exports carry, puts the pivot on the ground and sets a real-world size per folder or per model, instead of the 1.9 m every model arrives at.</p></div>
+          <div class="card"><h3>Materials</h3><p>Rebuilds URP Lit (or Built-in Standard) materials with base, normal and a metallic/smoothness map packed from the generator's separate metal and roughness maps, and imports normal and data maps correctly.</p></div>
+          <div class="card"><h3>Rigged characters</h3><p>Sets up a valid Humanoid avatar and corrects the automatic bone mapping, drops rest-pose stub clips, gives clips readable names and loops locomotion. Scales characters to a real height.</p></div>
+          <div class="card"><h3>Missing and wrong textures</h3><p>Recovers textures that rigged exports reference but don't ship, from the GLB exported next to them, and stops Unity from giving one character another character's texture.</p></div>
+          <div class="card"><h3>Mobile budgets</h3><p>Safe, UV-preserving polygon reduction (85–93% fewer triangles on the test set with no visible change) and LOD levels only where they help. Tells you when a lower budget needs a remesh.</p></div>
+          <div class="card"><h3>Provenance and licenses</h3><p>Records which generator, plan and license each asset came from, flags license traps, exports attribution credits and a store disclosure draft, and lists the AI assets each build actually ships.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Before and after</h2>
+        <div class="pairs">
+          <div class="pair">
+            <div class="images">
+              <figure><img src="assets/tower-raw.png" alt="Raw tower export, half sunk into the ground" loading="lazy"><figcaption>Raw export</figcaption></figure>
+              <figure class="after"><img src="assets/tower-fixed.png" alt="Tower after AI Model Doctor, 8 m tall on the ground" loading="lazy"><figcaption>Fixed on import</figcaption></figure>
+            </div>
+            <div class="caption"><strong>Tower.</strong> From 1.9 m with a centred pivot to 8 m standing on the ground.</div>
+          </div>
+          <div class="pair">
+            <div class="images">
+              <figure><img src="assets/chest-raw.png" alt="Raw chest export, half sunk into the ground" loading="lazy"><figcaption>Raw export</figcaption></figure>
+              <figure class="after"><img src="assets/chest-fixed.png" alt="Chest after AI Model Doctor, on the ground with metal fittings" loading="lazy"><figcaption>Fixed on import</figcaption></figure>
+            </div>
+            <div class="caption"><strong>Chest.</strong> Real size, pivot on the ground, metal fittings that read as metal.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>The editor window</h2>
+        <p class="lead">One list of every model under your rules: what was fixed on import, what still needs a decision, and where each asset came from. Confirm the plan of a whole generator's assets in one click.</p>
+        <div class="shot"><img src="assets/window.png" alt="AI Model Doctor editor window listing models with thumbnails, fixed and to-check counts, and a detail panel" loading="lazy"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>Details</h2>
+        <ul class="checklist">
+          <li>Unity 2022.3 LTS and Unity 6. Universal Render Pipeline and Built-in.</li>
+          <li>Editor-only: nothing is added to your builds.</li>
+          <li>Runs locally. No network access, no accounts, no analytics.</li>
+          <li>Batch commands with JSON output for CI and coding agents.</li>
+          <li>Never overwrites import data that belongs to other tools.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Tato Tools · <a href="contact.html">Contact</a></span>
+      <span>Unity is a trademark of Unity Technologies. Meshy, Tripo and other product names are trademarks of their owners. Tato Tools is not affiliated with them.</span>
+    </div>
+  </footer>
+</body>
+</html>

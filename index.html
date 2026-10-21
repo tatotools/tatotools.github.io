@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tato Tools — Unity tools for games made with AI</title>
+  <meta name="description" content="Tato Tools builds Unity editor tools for developers who use AI generators. AI Model Doctor makes AI-generated 3D models game-ready on import.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="">Tato Tools</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./" aria-current="page">Home</a>
+        <a href="ai-model-doctor.html">AI Model Doctor</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Unity editor tools</div>
+      <h1>Tools for games made with AI</h1>
+      <p>AI generators produce assets in seconds, then you spend hours getting them into the engine. Tato Tools builds Unity editor tools that close that gap, tested on real generator output.</p>
+      <a class="button" href="ai-model-doctor.html">Meet AI Model Doctor</a>
+      <a class="button secondary" href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>AI Model Doctor</h2>
+        <p class="lead">Drop a model from an AI 3D generator into a folder and it imports game-ready: real size, pivot on the ground, materials that render the way they were generated, mobile triangle budgets, and Humanoid rigs.</p>
+        <div class="pairs">
+          <div class="pair">
+            <div class="images">
+              <figure><img src="assets/coin-raw.png" alt="Raw generator export of a gold coin: 1.9 m wide, flat yellow, half sunk into the ground" loading="lazy"><figcaption>Raw export</figcaption></figure>
+              <figure class="after"><img src="assets/coin-fixed.png" alt="The same coin after AI Model Doctor: 5 cm, metallic gold, standing on the ground" loading="lazy"><figcaption>Fixed on import</figcaption></figure>
+            </div>
+            <div class="caption"><strong>Coin.</strong> Exported 1.9 m wide with its pivot in the middle and metal read as plastic. Imported at 5 cm, on the ground, with its metal back.</div>
+          </div>
+          <div class="pair">
+            <div class="images">
+              <figure><img src="assets/shield-raw.png" alt="Raw generator export of a metal shield, half sunk into the ground and flat grey" loading="lazy"><figcaption>Raw export</figcaption></figure>
+              <figure class="after"><img src="assets/shield-fixed.png" alt="The same shield after AI Model Doctor, standing on the ground with metallic reflections" loading="lazy"><figcaption>Fixed on import</figcaption></figure>
+            </div>
+            <div class="caption"><strong>Shield.</strong> The generator's metallic and roughness maps were ignored by Unity's importer. They are packed into the map URP expects.</div>
+          </div>
+        </div>
+        <p style="margin-top:28px"><span class="status">Coming soon to the Unity Asset Store</span><br><a href="ai-model-doctor.html">See everything it fixes →</a></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>How we work</h2>
+        <div class="grid">
+          <div class="card"><h3>Tested on real output</h3><p>Every fix is checked against a corpus of models generated for testing, imported in Unity 2022.3 LTS and Unity 6, and compared by render before and after.</p></div>
+          <div class="card"><h3>Honest about limits</h3><p>When a fix would damage your asset, the tool says so instead of doing it. For example, it tells you when a triangle budget needs a remesh rather than smearing your textures.</p></div>
+          <div class="card"><h3>Built for agents too</h3><p>Batch commands return JSON, so CI pipelines and coding agents can run the same checks you run in the editor window.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Tato Tools · <a href="contact.html">Contact</a></span>
+      <span>Unity is a trademark of Unity Technologies. Other product names are trademarks of their owners. Tato Tools is not affiliated with them.</span>
+    </div>
+  </footer>
+</body>
+</html>

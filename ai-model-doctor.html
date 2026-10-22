@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI Model Doctor — Tato Tools</title>
-  <meta name="description" content="Unity editor tool that makes AI-generated 3D models game-ready on import: scale, pivot, URP materials, mobile budgets with LODs, Humanoid rigs and a license ledger.">
+  <meta name="description" content="Unity editor tool that makes AI-generated 3D models game-ready on import, as FBX and GLB: scale, pivot, URP materials, compressed GLB textures, mobile budgets with LODs, Humanoid rigs and a license ledger.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
@@ -25,7 +25,7 @@
     <div class="wrap">
       <div class="eyebrow">Unity editor tool · Coming soon to the Asset Store</div>
       <h1>AI Model Doctor</h1>
-      <p>Game-ready imports for AI-generated 3D models, tested with Meshy and with Unity AI's own 3D generator. Put an import rule in a folder; every model that lands there is fixed on import, and the editor window shows what was fixed and what still needs you.</p>
+      <p>Game-ready imports for AI-generated 3D models, tested with Meshy and with Unity AI's own 3D generator, as FBX and as GLB. Put an import rule in a folder; every model that lands there is fixed on import, and the editor window shows what was fixed and what still needs you.</p>
       <a class="button" href="contact.html">Ask a question</a>
     </div>
   </div>
@@ -34,13 +34,15 @@
     <section>
       <div class="wrap">
         <h2>What it fixes</h2>
-        <p class="lead">Measured on 36 Meshy models (70 FBX files, static and rigged) and on props from Unity AI's 3D Object Generator, in Unity 2022.3 LTS and Unity 6.</p>
+        <p class="lead">Measured on 36 Meshy models (70 FBX files, static and rigged) and on props from Unity AI's 3D Object Generator as FBX and GLB, in Unity 2022.3 LTS and Unity 6.</p>
         <div class="grid">
           <div class="card"><h3>Scale and pivot</h3><p>Bakes the ×100 root scale and axis rotations exports carry, puts the pivot on the ground and sets a real-world size per folder or per model, instead of the fixed size every model arrives at (1.9 m from Meshy, 1 m from Unity AI).</p></div>
           <div class="card"><h3>Materials</h3><p>Rebuilds URP Lit (or Built-in Standard) materials with base, normal and a metallic/smoothness map packed from the generator's separate metal and roughness maps, and imports normal and data maps correctly.</p></div>
           <div class="card"><h3>Rigged characters</h3><p>Sets up a valid Humanoid avatar and corrects the automatic bone mapping, drops rest-pose stub clips, gives clips readable names and loops locomotion. Scales characters to a real height.</p></div>
           <div class="card"><h3>Missing and wrong textures</h3><p>Fixes models that arrive white: fills materials created before their textures were extracted (Unity AI), recovers textures rigged exports reference but don't ship (Meshy), and stops Unity from giving one character another character's texture.</p></div>
           <div class="card"><h3>Mobile budgets</h3><p>Safe, UV-preserving polygon reduction (85–93% fewer triangles on the test set with no visible change) and LOD levels only where they help. Tells you when a lower budget needs a remesh.</p></div>
+          <div class="card"><h3>GLB textures</h3><p>GLB, Unity AI's default output, imports its textures uncompressed and at full size, with no setting to change it. AI Model Doctor extracts them to textures Unity compresses and caps, and fixes the GLB's prefab: pivot, size and materials.</p></div>
+          <div class="card"><h3>Unity AI's GeneratedAssets folder</h3><p>Unity AI keeps every variant you generate in a folder outside Assets/ that is never cleaned up, and git commits it. AI Model Doctor shows its size and keeps it out of git when you ask. It never deletes your generation history.</p></div>
           <div class="card"><h3>Provenance and licenses</h3><p>Records which generator, plan and license each asset came from, flags license traps, exports attribution credits and a store disclosure draft, and lists the AI assets each build actually ships.</p></div>
         </div>
       </div>
@@ -64,6 +66,18 @@
             </div>
             <div class="caption"><strong>Chest.</strong> Real size, pivot on the ground, metal fittings that read as metal.</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>GLB in builds</h2>
+        <p class="lead">Measured in a macOS player build with Unity 6.6, on GLB props from Unity AI's 3D generator, with the rule's texture cap at 1024.</p>
+        <div class="stats">
+          <div class="stat"><div class="figure">85.3 MB <span>→</span> 0.7 MB</div><p>Coin from Hunyuan 3D, one 4096² texture</p></div>
+          <div class="stat"><div class="figure">53.3 MB <span>→</span> 2.0 MB</div><p>Each Tripo prop, three 2048² maps</p></div>
+          <div class="stat"><div class="figure">187 MB less</div><p>In a build with three props, which look the same</p></div>
         </div>
       </div>
     </section>

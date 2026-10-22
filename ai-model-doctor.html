@@ -37,7 +37,7 @@
         <p class="lead">Measured on 36 Meshy models (70 FBX files, static and rigged) and on props from Unity AI's 3D Object Generator as FBX and GLB, in Unity 2022.3 LTS and Unity 6.</p>
         <div class="grid">
           <div class="card"><h3>Scale and pivot</h3><p>Bakes the ×100 root scale and axis rotations exports carry, puts the pivot on the ground and sets a real-world size per folder or per model, instead of the fixed size every model arrives at (1.9 m from Meshy, 1 m from Unity AI).</p></div>
-          <div class="card"><h3>Materials</h3><p>Rebuilds URP Lit (or Built-in Standard) materials with base, normal and a metallic/smoothness map packed from the generator's separate metal and roughness maps, and imports normal and data maps correctly.</p></div>
+          <div class="card"><h3>Materials</h3><p>Rebuilds URP Lit, HDRP Lit or Built-in Standard materials with base, normal and a metallic/smoothness map packed from the generator's separate metal and roughness maps, and imports normal and data maps correctly.</p></div>
           <div class="card"><h3>Rigged characters</h3><p>Sets up a valid Humanoid avatar and corrects the automatic bone mapping, drops rest-pose stub clips, gives clips readable names and loops locomotion. Scales characters to a real height.</p></div>
           <div class="card"><h3>Missing and wrong textures</h3><p>Fixes models that arrive white: fills materials created before their textures were extracted (Unity AI), recovers textures rigged exports reference but don't ship (Meshy), and stops Unity from giving one character another character's texture.</p></div>
           <div class="card"><h3>Mobile budgets</h3><p>Safe, UV-preserving polygon reduction (85–93% fewer triangles on the test set with no visible change) and LOD levels only where they help. Tells you when a lower budget needs a remesh.</p></div>
@@ -94,7 +94,7 @@
       <div class="wrap">
         <h2>Details</h2>
         <ul class="checklist">
-          <li>Unity 2022.3 LTS and Unity 6. Universal Render Pipeline and Built-in.</li>
+          <li>Unity 2022.3 LTS and Unity 6. Universal Render Pipeline, High Definition Render Pipeline and Built-in.</li>
           <li>Editor-only: nothing is added to your builds.</li>
           <li>Runs locally. No network access, no accounts, no analytics.</li>
           <li>Batch commands with JSON output for CI and coding agents.</li>

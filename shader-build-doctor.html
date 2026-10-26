@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shader Build Doctor — Tato Tools</title>
+  <meta name="description" content="Unity editor tool that measures the shader variants your build compiles in seconds instead of hours, explains which keyword and setting multiplies them, warns about materials that will render pink, and fails CI builds over a variant budget.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/logo.svg" alt="">Tato Tools</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="ai-model-doctor.html">AI Model Doctor</a>
+        <a href="shader-build-doctor.html" aria-current="page">Shader Build Doctor</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Unity editor tool · Coming soon to the Asset Store</div>
+      <h1>Shader Build Doctor</h1>
+      <p>Builds that take hours because of shader variants. Shader Build Doctor measures the variants your build compiles in seconds to minutes, without compiling them, then tells you where they come from: the shader, the keyword that multiplies it, and the setting or material of your project that turns it on.</p>
+      <a class="button" href="contact.html">Ask a question</a>
+    </div>
+  </div>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>Measured, not compiled</h2>
+        <p class="lead">A dry-run build records every variant that survives URP's and your project's stripping, then strips them all, so nothing is compiled. The counts match real builds; your incremental build cache is set aside and put back.</p>
+        <div class="stats">
+          <div class="stat"><div class="figure">24 s <span>vs</span> 396 s</div><p>HDRP test project: the same 3,697 variants, measured and compiled</p></div>
+          <div class="stat"><div class="figure">16 s <span>vs</span> hours</div><p>URP test project with 40,403 variants. Its real build compiled about one variant per second; we stopped it after 17 minutes</p></div>
+          <div class="stat"><div class="figure">−97%</div><p>Variants in that project after the three changes the findings pointed at: 40,403 → 1,326</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>What it tells you</h2>
+        <div class="grid">
+          <div class="card"><h3>Why each shader has so many variants</h3><p>The keywords and multi_compile groups that multiply each pass, and what turns each one on in your project: "PC_RPAsset: Soft Shadows on", "Graphics: Fog Modes set to Custom", or the materials that enable it.</p></div>
+          <div class="card"><h3>Materials that will render pink</h3><p>Shaders a stripper removes while materials in the build still use them, and Built-in pipeline shaders left in a URP build. Found before your players see them.</p></div>
+          <div class="card"><h3>Settings that waste variants</h3><p>Fog and lightmap modes kept for scenes that don't use them, instancing variants for every shader, Built-in shaders left in a URP project, quality levels that add up their features. Each with what it costs.</p></div>
+          <div class="card"><h3>A budget for CI</h3><p>A batch command fails the build when variants grow past a budget you keep in your repository, and writes a summary of what changed and why, ready for a pull request.</p></div>
+          <div class="card"><h3>Strip rules you can preview</h3><p>Optional rules to strip what you don't need, off until you enable them. The preview shows what each rule removes and warns about the materials it would break.</p></div>
+          <div class="card"><h3>Your settings, put back</h3><p>The dry run uses Mono instead of IL2CPP and, on Android, exports the project without your keystore. Everything goes back the way it was when it ends.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The editor window screenshot goes here once it is captured from the URP 3D Sample. -->
+
+    <section>
+      <div class="wrap">
+        <h2>Details</h2>
+        <ul class="checklist">
+          <li>Unity 2022.3 LTS and Unity 6.</li>
+          <li>URP and Built-in: measurement, findings and the settings behind each keyword. HDRP: measurement, findings about materials, CI and strip rules.</li>
+          <li>Tested on macOS and Android build targets.</li>
+          <li>Editor-only: nothing is added to your builds. Runs locally: no network access, no accounts, no analytics.</li>
+          <li>A free Lite edition measures the variants per shader; the full edition explains and fixes them.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Tato Tools · <a href="contact.html">Contact</a></span>
+      <span>Unity is a trademark of Unity Technologies. Other product names are trademarks of their owners. Tato Tools is not affiliated with them.</span>
+    </div>
+  </footer>
+</body>
+</html>

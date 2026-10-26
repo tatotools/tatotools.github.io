@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tato Tools — Unity tools for games made with AI</title>
-  <meta name="description" content="Tato Tools builds Unity editor tools for developers who use AI generators. AI Model Doctor makes AI-generated 3D models game-ready on import.">
+  <title>Tato Tools — Unity editor tools</title>
+  <meta name="description" content="Tato Tools builds Unity editor tools that measure before they fix. AI Model Doctor makes AI-generated 3D models game-ready on import; Shader Build Doctor measures and explains shader variants and build times.">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
@@ -16,6 +16,7 @@
       <nav class="nav" aria-label="Main">
         <a href="./" aria-current="page">Home</a>
         <a href="ai-model-doctor.html">AI Model Doctor</a>
+        <a href="shader-build-doctor.html">Shader Build Doctor</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -24,10 +25,10 @@
   <div class="hero">
     <div class="wrap">
       <div class="eyebrow">Unity editor tools</div>
-      <h1>Tools for games made with AI</h1>
-      <p>AI generators produce assets in seconds, then you spend hours getting them into the engine. Tato Tools builds Unity editor tools that close that gap, tested on real generator output.</p>
-      <a class="button" href="ai-model-doctor.html">Meet AI Model Doctor</a>
-      <a class="button secondary" href="contact.html">Contact</a>
+      <h1>Unity tools that measure before they fix</h1>
+      <p>Tato Tools builds Unity editor tools for problems that cost you hours: AI-generated models that arrive broken, and builds slowed down by shader variants. Every tool is tested on real projects and real generator output, and tells you what it changed.</p>
+      <a class="button" href="ai-model-doctor.html">AI Model Doctor</a>
+      <a class="button secondary" href="shader-build-doctor.html">Shader Build Doctor</a>
     </div>
   </div>
 
@@ -58,9 +59,21 @@
 
     <section>
       <div class="wrap">
+        <h2>Shader Build Doctor</h2>
+        <p class="lead">Measures the shader variants your build compiles in seconds to minutes, without compiling them, and explains where they come from: the keyword that multiplies each shader and the setting or material that turns it on. Warns about materials that will render pink, and fails CI builds that go over a variant budget.</p>
+        <div class="stats">
+          <div class="stat"><div class="figure">24 s <span>vs</span> 396 s</div><p>Same variant count, measured and compiled, in an HDRP test project</p></div>
+          <div class="stat"><div class="figure">−97%</div><p>Variants in a URP test project after the changes its findings pointed at</p></div>
+        </div>
+        <p style="margin-top:28px"><span class="status">Coming soon to the Unity Asset Store</span><br><a href="shader-build-doctor.html">See what it measures →</a></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
         <h2>How we work</h2>
         <div class="grid">
-          <div class="card"><h3>Tested on real output</h3><p>Every fix is checked against a corpus of models generated for testing, imported in Unity 2022.3 LTS and Unity 6, and compared by render before and after.</p></div>
+          <div class="card"><h3>Tested on real output</h3><p>Every fix is checked on real material: a corpus of generated models compared by render before and after, real projects measured against their real builds, in Unity 2022.3 LTS and Unity 6.</p></div>
           <div class="card"><h3>Honest about limits</h3><p>When a fix would damage your asset, the tool says so instead of doing it. For example, it tells you when a triangle budget needs a remesh rather than smearing your textures.</p></div>
           <div class="card"><h3>Built for agents too</h3><p>Batch commands return JSON, so CI pipelines and coding agents can run the same checks you run in the editor window.</p></div>
         </div>
